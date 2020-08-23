@@ -3,15 +3,16 @@ package com.akhilrao2797.invest.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 public class User {
     @Id
     String userId;
     String name;
-    Date dateOfBirth;
+    LocalDate dateOfBirth;
     @OneToMany
     List<Analyst> analysts;
 
@@ -20,7 +21,11 @@ public class User {
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userId = UUID
+                .randomUUID()
+                .toString()
+                .replace("-", "")
+                .toUpperCase();
     }
 
     public String getName() {
@@ -31,11 +36,11 @@ public class User {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
