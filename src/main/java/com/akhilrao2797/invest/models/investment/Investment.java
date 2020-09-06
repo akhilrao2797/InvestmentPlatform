@@ -10,8 +10,8 @@ import java.time.LocalDate;
 public abstract class Investment {
     @OneToOne
     Analyst analyst;
-    String company;
-    String companyId;
+    String stock;
+    String stockReferenceId;
     float buyPrice;
     float sellPrice;
     LocalDate dateOfIssue;
@@ -24,20 +24,20 @@ public abstract class Investment {
         this.analyst = analyst;
     }
 
-    public String getCompany() {
-        return company;
+    public String getStock() {
+        return stock;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setStock(String stock) {
+        this.stock = stock;
     }
 
-    public String getCompanyId() {
-        return companyId;
+    public String getStockReferenceId() {
+        return stockReferenceId;
     }
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
+    public void setStockReferenceId(String stockReferenceId) {
+        this.stockReferenceId = stockReferenceId;
     }
 
     public float getBuyPrice() {

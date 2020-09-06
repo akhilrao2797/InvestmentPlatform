@@ -13,8 +13,6 @@ public class User {
     String userId;
     String name;
     LocalDate dateOfBirth;
-    @OneToMany
-    List<Analyst> analysts;
 
     public String getUserId() {
         return userId;
@@ -42,13 +40,5 @@ public class User {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public List<Analyst> getAnalysts() {
-        return analysts;
-    }
-
-    public void setAnalysts(List<Analyst> analysts) {
-        this.analysts = analysts;
     }
 }
