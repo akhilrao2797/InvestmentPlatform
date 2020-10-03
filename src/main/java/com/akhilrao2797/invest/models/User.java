@@ -18,7 +18,7 @@ public class User {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId() {
         this.userId = UUID
                 .randomUUID()
                 .toString()

@@ -2,6 +2,8 @@ package com.akhilrao2797.invest.models.investment;
 
 import com.akhilrao2797.invest.models.Analyst;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import java.time.LocalDate;
@@ -15,6 +17,8 @@ public abstract class Investment {
     float buyPrice;
     float sellPrice;
     LocalDate dateOfIssue;
+    @Enumerated(EnumType.STRING)
+    InvestmentType investmentType;
 
     public Analyst getAnalyst() {
         return analyst;
@@ -62,5 +66,13 @@ public abstract class Investment {
 
     public void setDateOfIssue(LocalDate dateOfIssue) {
         this.dateOfIssue = dateOfIssue;
+    }
+
+    public InvestmentType getInvestmentType() {
+        return investmentType;
+    }
+
+    public void setInvestmentType(InvestmentType investmentType) {
+        this.investmentType = investmentType;
     }
 }
