@@ -2,23 +2,36 @@ package com.akhilrao2797.invest.models.investment;
 
 import com.akhilrao2797.invest.models.Analyst;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
-import java.time.LocalDate;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @MappedSuperclass
-public abstract class Investment {
+public class Investment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    long investmentId;
     @OneToOne
     Analyst analyst;
     String stock;
     String stockReferenceId;
     float buyPrice;
     float sellPrice;
-    LocalDate dateOfIssue;
+    LocalDateTime dateOfIssue;
     @Enumerated(EnumType.STRING)
     InvestmentType investmentType;
+
+    public long getInvestmentId() {
+        return investmentId;
+    }
+
+    public void setInvestmentId(long investmentId) {
+        this.investmentId = investmentId;
+    }
+
+    public void setDateOfIssue() {
+        this.dateOfIssue = LocalDateTime.now();
+    }
 
     public Analyst getAnalyst() {
         return analyst;
@@ -60,12 +73,8 @@ public abstract class Investment {
         this.sellPrice = sellPrice;
     }
 
-    public LocalDate getDateOfIssue() {
+    public LocalDateTime getDateOfIssue() {
         return dateOfIssue;
-    }
-
-    public void setDateOfIssue(LocalDate dateOfIssue) {
-        this.dateOfIssue = dateOfIssue;
     }
 
     public InvestmentType getInvestmentType() {

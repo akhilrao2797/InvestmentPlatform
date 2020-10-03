@@ -1,21 +1,18 @@
 package com.akhilrao2797.invest.models.investment;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class LongTermInvestment extends Investment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int longTermId;
 
-    public int getLongTermId() {
-        return longTermId;
-    }
-
-    public void setLongTermId(int longTermId) {
-        this.longTermId = longTermId;
+    public LongTermInvestment getInvestmentObjectFromValue(Investment investment){
+        this.buyPrice = investment.getBuyPrice();
+        this.sellPrice = investment.getSellPrice();
+        this.setDateOfIssue();
+        this.analyst = investment.getAnalyst();
+        this.investmentType = InvestmentType.LONG_TERM_INVESTMENT;
+        this.stock = investment.getStock();
+        this.stockReferenceId = investment.getStockReferenceId();
+        return this;
     }
 }
