@@ -2,9 +2,7 @@ package com.akhilrao2797.invest.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -13,6 +11,7 @@ public class User {
     String userId;
     String name;
     LocalDate dateOfBirth;
+    boolean paidUser;
 
     public String getUserId() {
         return userId;
@@ -40,5 +39,13 @@ public class User {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public boolean isPaidUser() {
+        return paidUser;
+    }
+
+    public void setPaidUser(boolean paidUser) {
+        this.paidUser = paidUser;
     }
 }

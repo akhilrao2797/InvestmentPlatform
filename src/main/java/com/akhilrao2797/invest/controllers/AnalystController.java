@@ -27,8 +27,10 @@ public class AnalystController {
                 .body(analystService.postAnalyst(analyst));
     }
 
-    @PutMapping("/analyst")
-    public ResponseEntity putAnalyst(@RequestParam final boolean activate){
+    @PutMapping("/analyst('{analystId}')")
+    public ResponseEntity putAnalyst(@PathVariable String analystId,
+                                     @RequestParam final boolean status){
+        analystService.updateAnalystStatus(analystId, status);
         return ResponseEntity.accepted().build();
     }
 

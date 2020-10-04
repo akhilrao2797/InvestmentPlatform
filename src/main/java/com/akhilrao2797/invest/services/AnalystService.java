@@ -30,4 +30,10 @@ public class AnalystService {
             throw new RuntimeException();
         }
     }
+
+    public Analyst updateAnalystStatus(String analystId, boolean status) {
+        Analyst analyst = getAnalystById(analystId);
+        analyst.setStatusActive(status);
+        return analystRepository.save(analyst);
+    }
 }
