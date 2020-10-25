@@ -1,24 +1,30 @@
 package com.akhilrao2797.invest.models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 public class Payment {
     @Id
-    int paymentId;
+    @Type(type = "org.hibernate.type.UUIDCharType")
+    UUID paymentId;
     @OneToOne
     User user;
     @OneToOne
     Analyst analyst;
+    LocalDateTime localDateTime;
 
-    public int getPaymentId() {
+    public UUID getPaymentId() {
         return paymentId;
     }
 
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
+    public void setPaymentId() {
+        this.paymentId = UUID.randomUUID();
     }
 
     public User getUser() {
@@ -35,5 +41,13 @@ public class Payment {
 
     public void setAnalyst(Analyst analyst) {
         this.analyst = analyst;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
+    }
+
+    public void setLocalDateTime() {
+        this.localDateTime = LocalDateTime.now();
     }
 }

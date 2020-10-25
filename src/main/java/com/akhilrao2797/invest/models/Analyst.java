@@ -11,6 +11,7 @@ public class Analyst {
     String name;
     String company;
     boolean statusActive;
+    String sebiRegisteredId;
 
     public String getAnalystId() {
         return analystId;
@@ -46,5 +47,13 @@ public class Analyst {
 
     public void setStatusActive(boolean statusActive) {
         this.statusActive = statusActive;
+    }
+
+    public String getSebiRegisteredId() {
+        return sebiRegisteredId;
+    }
+
+    public void setSebiRegisteredId(String sebiRegisteredId) {
+        this.sebiRegisteredId = sebiRegisteredId;
     }
 }

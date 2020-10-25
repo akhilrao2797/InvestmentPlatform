@@ -7,17 +7,19 @@ import java.util.List;
 public class Subscription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int subscriptionId;
-    @OneToOne
+    long subscriptionId;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     User user;
-    @OneToMany
+    
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Analyst> analystList;
 
-    public int getSubscriptionId() {
+    public long getSubscriptionId() {
         return subscriptionId;
     }
 
-    public void setSubscriptionId(int subscriptionId) {
+    public void setSubscriptionId(long subscriptionId) {
         this.subscriptionId = subscriptionId;
     }
 
