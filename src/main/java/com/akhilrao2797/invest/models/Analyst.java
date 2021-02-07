@@ -10,7 +10,7 @@ public class Analyst {
     String analystId;
     String name;
     String company;
-    boolean isActive;
+    boolean statusActive;
 
     public String getAnalystId() {
         return analystId;
@@ -40,11 +40,11 @@ public class Analyst {
         this.company = company;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public boolean isStatusActive() {
+        return statusActive;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setStatusActive(boolean statusActive) {
+        this.statusActive = statusActive;
     }
 }
