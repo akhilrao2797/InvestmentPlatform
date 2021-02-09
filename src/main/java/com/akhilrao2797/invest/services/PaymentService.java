@@ -2,7 +2,6 @@ package com.akhilrao2797.invest.services;
 
 import com.akhilrao2797.invest.models.Payment;
 import com.akhilrao2797.invest.respository.PaymentRepository;
-import com.akhilrao2797.invest.respository.SubscriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
