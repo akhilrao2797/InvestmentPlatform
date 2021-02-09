@@ -16,10 +16,10 @@ public class AnalystService {
         return analystRepository.save(analyst);
     }
 
-    public Analyst getAnalystById(String id){
+    public Analyst getAnalystById(String id) throws Exception {
         return analystRepository
                 .findById(id)
-                .orElseThrow(()-> new RuntimeException());
+                .orElseThrow(()-> new Exception());
     }
 
     public void deleteAnalystById(String id){
@@ -31,7 +31,7 @@ public class AnalystService {
         }
     }
 
-    public Analyst updateAnalystStatus(String analystId, boolean status) {
+    public Analyst updateAnalystStatus(String analystId, boolean status) throws Exception {
         Analyst analyst = getAnalystById(analystId);
         analyst.setStatusActive(status);
         return analystRepository.save(analyst);
