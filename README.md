@@ -8,3 +8,6 @@ A web based app that provides a single platform where an investor gets to know t
   3. MySQL
   4. Spring DATA JPA
   
+#### Swagger
+    http://localhost:8080/swagger-ui/
+    http://localhost:8080/v2/api-docs  
