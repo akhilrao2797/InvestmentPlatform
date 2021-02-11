@@ -1,5 +1,7 @@
 package com.akhilrao2797.invest.models;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;

@@ -11,3 +11,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: akhil
     password: akhil
+
+com:
+  invest:
+    secret: invest-platform-akhil
