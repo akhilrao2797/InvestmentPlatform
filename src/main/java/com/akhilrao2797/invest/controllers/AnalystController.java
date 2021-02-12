@@ -14,7 +14,7 @@ public class AnalystController {
     AnalystService analystService;
 
     @GetMapping("analyst('{analystId}')")
-    public ResponseEntity getAnalyst(@PathVariable String analystId){
+    public ResponseEntity<Analyst> getAnalyst(@PathVariable String analystId){
         try {
             if (analystId.length() == 32)
                 return ResponseEntity.ok(analystService.getAnalystById(analystId));
@@ -26,13 +26,13 @@ public class AnalystController {
     }
 
     @PostMapping("/analyst")
-    public ResponseEntity postAnalyst(@RequestBody final Analyst analyst){
+    public ResponseEntity<Analyst> postAnalyst(@RequestBody final Analyst analyst){
         return ResponseEntity.ok()
                 .body(analystService.postAnalyst(analyst));
     }
 
     @PutMapping("/analyst('{analystId}')")
-    public ResponseEntity putAnalyst(@PathVariable String analystId,
+    public ResponseEntity<Analyst> putAnalyst(@PathVariable String analystId,
                                      @RequestParam final boolean status){
         try {
             analystService.updateAnalystStatus(analystId, status);
@@ -43,7 +43,7 @@ public class AnalystController {
     }
 
     @DeleteMapping("analyst('{analystId}')")
-    public ResponseEntity deleteAnalyst(@PathVariable String analystId){
+    public ResponseEntity<String> deleteAnalyst(@PathVariable String analystId){
         analystService.deleteAnalystById(analystId);
         return ResponseEntity.accepted().build();
     }

@@ -20,14 +20,13 @@ public class SubscriptionController {
     SubscriptionRepository subscriptionRepository;
 
     @GetMapping("/subscription('{subscriptionId}')")
-    public ResponseEntity getSubscriptionDetails(@PathVariable long subscriptionId){
+    public ResponseEntity<Subscription> getSubscriptionDetails(@PathVariable long subscriptionId){
         return ResponseEntity.ok(subscriptionService.getSubscriptionInfo(subscriptionId));
     }
 
     @GetMapping("/subscription")
-    public ResponseEntity getSubscriptionDetailsByUser(@RequestParam String userId){
+    public ResponseEntity<List<Subscription>> getSubscriptionDetailsByUser(@RequestParam String userId){
         List<Subscription> sr = subscriptionRepository.findByUserId(userId);
-        System.out.println(sr);
         return ResponseEntity.ok(subscriptionRepository.findByUserId(userId));
     }
 }

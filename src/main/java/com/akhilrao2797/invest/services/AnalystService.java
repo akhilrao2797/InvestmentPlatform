@@ -5,6 +5,8 @@ import com.akhilrao2797.invest.respository.AnalystRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class AnalystService {
 
@@ -16,10 +18,10 @@ public class AnalystService {
         return analystRepository.save(analyst);
     }
 
-    public Analyst getAnalystById(String id) throws Exception {
+    public Analyst getAnalystById(String id) {
         return analystRepository
                 .findById(id)
-                .orElseThrow(()-> new Exception());
+                .orElseThrow(NoSuchElementException::new);
     }
 
     public void deleteAnalystById(String id){
@@ -27,11 +29,11 @@ public class AnalystService {
             analystRepository.deleteById(id);
         }
         else{
-            throw new RuntimeException();
+            throw new NoSuchElementException();
         }
     }
 
-    public Analyst updateAnalystStatus(String analystId, boolean status) throws Exception {
+    public Analyst updateAnalystStatus(String analystId, boolean status) {
         Analyst analyst = getAnalystById(analystId);
         analyst.setStatusActive(status);
         return analystRepository.save(analyst);
