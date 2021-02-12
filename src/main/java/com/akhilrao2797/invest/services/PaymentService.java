@@ -5,6 +5,7 @@ import com.akhilrao2797.invest.respository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
@@ -19,10 +20,10 @@ public class PaymentService {
         this.paymentRepository = paymentRepository;
     }
 
-    public Payment getPaymentInfo(UUID uuid) throws Exception {
+    public Payment getPaymentInfo(UUID uuid) {
         return paymentRepository
                 .findById(uuid)
-                .orElseThrow(() -> new Exception());
+                .orElseThrow(NoSuchElementException::new);
     }
 
     public Payment addPayment(Payment payment) {

@@ -1,6 +1,5 @@
 package com.akhilrao2797.invest.controllers;
 
-import com.akhilrao2797.invest.models.investment.Intraday;
 import com.akhilrao2797.invest.models.investment.Investment;
 import com.akhilrao2797.invest.models.investment.InvestmentType;
 import com.akhilrao2797.invest.services.InvestmentService;
@@ -18,28 +17,28 @@ public class InvestmentController {
     InvestmentService investmentService;
 
     @GetMapping("/invest")
-    public ResponseEntity getInvestment(@RequestParam long id,
-                                        @RequestParam InvestmentType type) throws Throwable {
+    public ResponseEntity<Investment> getInvestment(@RequestParam long id,
+                                        @RequestParam InvestmentType type) {
         return ResponseEntity.ok(investmentService.getInvestmentInfo(id, type));
     }
 
     @PostMapping("/invest")
-    public ResponseEntity addInvestment(@RequestBody Investment investment) throws Exception {
+    public ResponseEntity<Investment> addInvestment(@RequestBody Investment investment) {
         return ResponseEntity.ok(investmentService.addInvestmentInfo(investment));
     }
 
     @DeleteMapping("/invest")
-    public ResponseEntity deleteInvestment(@RequestParam long id,
+    public ResponseEntity<String> deleteInvestment(@RequestParam long id,
                                            @RequestParam InvestmentType type){
         investmentService.deleteInvestmentInfo(id, type);
         return ResponseEntity.accepted().build();
     }
 
     @PutMapping("/invest")
-    public ResponseEntity updateInvestment(@RequestParam int id,
+    public ResponseEntity<Investment> updateInvestment(@RequestParam int id,
                                            @RequestParam InvestmentType type,
                                            @RequestParam Optional<Float> buyPrice,
-                                           @RequestParam Optional<Float> sellPrice) throws Throwable {
+                                           @RequestParam Optional<Float> sellPrice) {
         Investment investment = investmentService.updateInvestmentInfo(id, type, buyPrice, sellPrice);
         return ResponseEntity
                 .accepted()

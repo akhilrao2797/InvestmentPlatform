@@ -1,7 +1,6 @@
 package com.akhilrao2797.invest.services;
 
 import com.akhilrao2797.invest.models.Analyst;
-import com.akhilrao2797.invest.models.investment.Intraday;
 import com.akhilrao2797.invest.models.investment.Investment;
 import com.akhilrao2797.invest.models.investment.InvestmentType;
 import com.akhilrao2797.invest.utils.InvestmentFactory;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -29,17 +29,16 @@ public class InvestmentService {
         Investment investment = (Investment) jpaRepository
                 .findById(id)
                 .get();
-
-        return investment;
+        return Optional.of(investment).isPresent() ? investment : null;
     }
 
-    public Investment addInvestmentInfo(Investment investment) throws Exception {
+    public Investment addInvestmentInfo(Investment investment) {
         Analyst analyst = analystService
                 .getAnalystById(investment.getAnalyst().getAnalystId());
         investment.setAnalyst(analyst);
         investment = investmentFactory.insertData(investment);
         if(new Long(investment.getInvestmentId()) == null){
-            throw new Exception();
+            throw new NoSuchElementException();
         }
         return investment;
     }
@@ -52,7 +51,7 @@ public class InvestmentService {
     public Investment updateInvestmentInfo(long id,
                                            InvestmentType type,
                                            Optional<Float> buyPrice,
-                                           Optional<Float> sellPrice) throws Throwable {
+                                           Optional<Float> sellPrice) {
         JpaRepository jpaRepository = investmentFactory.getInvestmentRepository(type);
         Investment investment = getInvestmentInfo(id, type);
         if(buyPrice.isPresent())

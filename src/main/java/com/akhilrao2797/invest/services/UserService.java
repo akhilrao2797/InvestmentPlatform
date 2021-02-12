@@ -1,10 +1,11 @@
 package com.akhilrao2797.invest.services;
 
-import com.akhilrao2797.invest.models.Analyst;
 import com.akhilrao2797.invest.models.User;
 import com.akhilrao2797.invest.respository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
 
 @Service
 public class UserService {
@@ -20,7 +21,7 @@ public class UserService {
     public User getUserById(String id){
         return userRepository
                 .findById(id)
-                .orElseThrow(()-> new RuntimeException());
+                .orElseThrow(NoSuchElementException::new);
     }
 
     public void deleteUserById(String id){
@@ -28,7 +29,7 @@ public class UserService {
             userRepository.deleteById(id);
         }
         else{
-            throw new RuntimeException();
+            throw new NoSuchElementException();
         }
     }
 }

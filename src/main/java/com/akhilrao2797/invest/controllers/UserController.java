@@ -14,23 +14,23 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/user('{userId}')")
-    public ResponseEntity getUserInfo(@PathVariable String userId){
+    public ResponseEntity<User> getUserInfo(@PathVariable String userId){
         return ResponseEntity.ok(userService.getUserById(userId));
     }
 
     @PostMapping("/user")
-    public ResponseEntity addUser(@RequestBody User user){
+    public ResponseEntity<User> addUser(@RequestBody User user){
         return ResponseEntity.ok(userService.postUser(user));
     }
 
     @DeleteMapping("/user('{userId}')")
-    public ResponseEntity deleteUser(@PathVariable String userId){
+    public ResponseEntity<String> deleteUser(@PathVariable String userId){
         userService.deleteUserById(userId);
         return ResponseEntity.accepted().build();
     }
 
     @PutMapping("/user")
-    public ResponseEntity updateUserInfo(@RequestBody User user){
+    public ResponseEntity<User> updateUserInfo(@RequestBody User user){
         return ResponseEntity.ok().build();
     }
 }

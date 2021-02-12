@@ -1,6 +1,5 @@
 package com.akhilrao2797.invest.controllers;
 
-import com.akhilrao2797.invest.models.Analyst;
 import com.akhilrao2797.invest.models.Payment;
 import com.akhilrao2797.invest.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class PaymentController {
     PaymentService paymentService;
 
     @GetMapping("/payment('{id}')")
-    public ResponseEntity getAnalyst(@PathVariable String id){
+    public ResponseEntity<Payment> getAnalyst(@PathVariable String id){
         try{
             UUID uuid = UUID.fromString(id);
             return ResponseEntity.ok(paymentService.getPaymentInfo(uuid));
@@ -27,7 +26,7 @@ public class PaymentController {
     }
 
     @PostMapping("/payment")
-    public ResponseEntity postAnalyst(@RequestBody final Payment payment){
+    public ResponseEntity<Payment> postAnalyst(@RequestBody final Payment payment){
         return ResponseEntity.ok()
                 .body(paymentService.addPayment(payment));
     }
