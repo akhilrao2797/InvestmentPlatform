@@ -37,7 +37,7 @@ public class InvestmentService {
                 .getAnalystById(investment.getAnalyst().getAnalystId());
         investment.setAnalyst(analyst);
         investment = investmentFactory.insertData(investment);
-        if(new Long(investment.getInvestmentId()) == null){
+        if(Long.valueOf(investment.getInvestmentId()) == null){
             throw new NoSuchElementException();
         }
         return investment;
