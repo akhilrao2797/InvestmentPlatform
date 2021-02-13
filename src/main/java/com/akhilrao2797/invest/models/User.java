@@ -10,6 +10,7 @@ public class User {
     @Id
     String userId;
     String name;
+    String password;
     LocalDate dateOfBirth;
     boolean paidUser;
 
@@ -47,5 +48,13 @@ public class User {
 
     public void setPaidUser(boolean paidUser) {
         this.paidUser = paidUser;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

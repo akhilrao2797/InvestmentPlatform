@@ -26,7 +26,6 @@ public class SubscriptionController {
 
     @GetMapping("/subscription")
     public ResponseEntity<List<Subscription>> getSubscriptionDetailsByUser(@RequestParam String userId){
-        List<Subscription> sr = subscriptionRepository.findByUserId(userId);
         return ResponseEntity.ok(subscriptionRepository.findByUserId(userId));
     }
 }
