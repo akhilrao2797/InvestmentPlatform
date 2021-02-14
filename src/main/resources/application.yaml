@@ -15,3 +15,10 @@ spring:
 com:
   invest:
     secret: invest-platform-akhil
+
+logging:
+  level:
+    root: INFO
+    com:
+      akhilrao2797:
+        invest: DEBUG
