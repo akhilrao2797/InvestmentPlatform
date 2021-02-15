@@ -2,7 +2,7 @@ package com.akhilrao2797.invest.services;
 
 import com.akhilrao2797.invest.models.Analyst;
 import com.akhilrao2797.invest.models.investment.Investment;
-import com.akhilrao2797.invest.models.investment.InvestmentType;
+import com.akhilrao2797.invest.utils.InvestmentType;
 import com.akhilrao2797.invest.utils.InvestmentFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

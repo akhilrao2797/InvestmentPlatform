@@ -1,7 +1,13 @@
 package com.akhilrao2797.invest.models;
 
+import com.akhilrao2797.invest.utils.NotNullAndNotEmpty;
+import com.akhilrao2797.invest.utils.Roles;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -9,10 +15,17 @@ import java.util.UUID;
 public class User {
     @Id
     String userId;
+    @NotNullAndNotEmpty
     String name;
+    @NotNullAndNotEmpty
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     String password;
+    @Past
     LocalDate dateOfBirth;
+    @JsonIgnore
     boolean paidUser;
+    @JsonIgnore
+    Roles role;
 
     public String getUserId() {
         return userId;
@@ -56,5 +69,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
     }
 }

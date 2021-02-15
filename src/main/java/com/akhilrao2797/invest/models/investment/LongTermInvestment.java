@@ -1,5 +1,7 @@
 package com.akhilrao2797.invest.models.investment;
 
+import com.akhilrao2797.invest.utils.InvestmentType;
+
 import javax.persistence.Entity;
 
 @Entity
