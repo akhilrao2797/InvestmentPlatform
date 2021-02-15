@@ -1,7 +1,7 @@
 package com.akhilrao2797.invest.controllers;
 
 import com.akhilrao2797.invest.models.investment.Investment;
-import com.akhilrao2797.invest.models.investment.InvestmentType;
+import com.akhilrao2797.invest.utils.InvestmentType;
 import com.akhilrao2797.invest.services.InvestmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

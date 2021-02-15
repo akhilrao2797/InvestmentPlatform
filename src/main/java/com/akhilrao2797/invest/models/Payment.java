@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -17,6 +18,7 @@ public class Payment {
     User user;
     @OneToOne
     Analyst analyst;
+    @PastOrPresent
     LocalDateTime localDateTime;
 
     public UUID getPaymentId() {

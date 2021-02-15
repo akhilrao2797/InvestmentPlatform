@@ -2,6 +2,7 @@ package com.akhilrao2797.invest.services;
 
 import com.akhilrao2797.invest.models.User;
 import com.akhilrao2797.invest.respository.UserRepository;
+import com.akhilrao2797.invest.utils.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class UserService {
         LOG.debug("Entered UserService.postUser");
         user.setUserId();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Roles.USER);
         LOG.debug("Exited UserService.postUser");
         return userRepository.save(user);
     }
