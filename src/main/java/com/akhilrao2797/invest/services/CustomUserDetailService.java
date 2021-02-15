@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @Service
 public class CustomUserDetailService implements UserDetailsService {
@@ -25,6 +26,6 @@ public class CustomUserDetailService implements UserDetailsService {
         LOG.info("Entered UserDetails.loadUserByUsername");
         User user = userRepository.findByName(name);
         return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(),
-                new ArrayList<>(new SimpleGrantedAuthority(user.getRole().toString())));
+                Arrays.asList(new SimpleGrantedAuthority(user.getRole().toString())));
     }
 }

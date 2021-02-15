@@ -3,11 +3,10 @@ package com.akhilrao2797.invest.models;
 import com.akhilrao2797.invest.utils.NotNullAndNotEmpty;
 import com.akhilrao2797.invest.utils.Roles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -19,6 +18,7 @@ public class User {
     @NotNullAndNotEmpty
     String name;
     @NotNullAndNotEmpty
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     String password;
     @Past
     LocalDate dateOfBirth;
@@ -63,7 +63,6 @@ public class User {
         this.paidUser = paidUser;
     }
 
-    @JsonIgnore
     public String getPassword() {
         return password;
     }
