@@ -6,6 +6,7 @@
 
     <groupId>com.akhilrao2797</groupId>
     <artifactId>InvestmentPlatform</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -19,6 +20,10 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>customer</module>
+        <module>analyst</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
