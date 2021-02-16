@@ -12,7 +12,7 @@ public class Subscription {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     User user;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Analyst> analystList;
 
     public long getSubscriptionId() {

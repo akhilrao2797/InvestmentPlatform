@@ -1,21 +1,12 @@
 package com.invest.customer.models;
 
-import com.invest.customer.utils.NotNullAndNotEmpty;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.UUID;
 
-@Entity
 public class Analyst {
-    @Id
     String analystId;
-    @NotNullAndNotEmpty
     String name;
-    @NotNullAndNotEmpty
     String company;
     boolean statusActive;
-    @NotNullAndNotEmpty
     String sebiRegisteredId;
 
     public String getAnalystId() {
@@ -62,3 +53,4 @@ public class Analyst {
         this.sebiRegisteredId = sebiRegisteredId;
     }
 }
+

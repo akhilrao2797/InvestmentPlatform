@@ -1,9 +1,9 @@
-package com.invest.customer.services;
+package com.invest.analyst.services;
 
-import com.invest.customer.models.Analyst;
-import com.invest.customer.models.investment.Investment;
-import com.invest.customer.utils.InvestmentType;
-import com.invest.customer.utils.InvestmentFactory;
+import com.invest.analyst.models.Analyst;
+import com.invest.analyst.models.investment.Investment;
+import com.invest.analyst.utils.InvestmentFactory;
+import com.invest.analyst.utils.InvestmentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,3 +73,4 @@ public class InvestmentService {
         return (Investment) jpaRepository.save(investment);
     }
 }
+

@@ -1,7 +1,7 @@
-package com.invest.customer.controllers;
+package com.invest.analyst.controllers;
 
-import com.invest.customer.models.Analyst;
-import com.invest.customer.services.AnalystService;
+import com.invest.analyst.models.Analyst;
+import com.invest.analyst.services.AnalystService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

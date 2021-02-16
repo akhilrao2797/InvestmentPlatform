@@ -16,7 +16,7 @@ public class Payment {
     UUID paymentId;
     @OneToOne
     User user;
-    @OneToOne
+//    @OneToOne
     Analyst analyst;
     @PastOrPresent
     LocalDateTime localDateTime;

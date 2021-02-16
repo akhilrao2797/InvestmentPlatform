@@ -1,13 +1,12 @@
-package com.invest.customer.utils;
+package com.invest.analyst.utils;
 
-import com.invest.customer.invest.models.investment.*;
-import com.invest.customer.models.investment.Investment;
-import com.invest.customer.models.investment.LongTermInvestment;
-import com.invest.customer.models.investment.ShortTermInvestment;
-import com.invest.customer.respository.IntradayRepository;
-import com.invest.customer.respository.LTIRepository;
-import com.invest.customer.respository.STIRepository;
-import com.invest.customer.models.investment.Intraday;
+import com.invest.analyst.models.investment.Intraday;
+import com.invest.analyst.models.investment.Investment;
+import com.invest.analyst.models.investment.LongTermInvestment;
+import com.invest.analyst.models.investment.ShortTermInvestment;
+import com.invest.analyst.repository.IntradayRepository;
+import com.invest.analyst.repository.LTIRepository;
+import com.invest.analyst.repository.STIRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
@@ -64,3 +63,4 @@ public class InvestmentFactory {
         return investment;
     }
 }
+

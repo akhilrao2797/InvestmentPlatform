@@ -1,8 +1,8 @@
-package com.invest.customer.models.investment;
+package com.invest.analyst.models.investment;
 
-import com.invest.customer.models.Analyst;
-import com.invest.customer.utils.InvestmentType;
-import com.invest.customer.utils.NotNullAndNotEmpty;
+import com.invest.analyst.models.Analyst;
+import com.invest.analyst.utils.InvestmentType;
+import com.invest.analyst.utils.NotNullAndNotEmpty;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

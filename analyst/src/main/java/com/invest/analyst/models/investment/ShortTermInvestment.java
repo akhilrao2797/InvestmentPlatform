@@ -1,18 +1,18 @@
-package com.invest.customer.models.investment;
+package com.invest.analyst.models.investment;
 
-import com.invest.customer.utils.InvestmentType;
+import com.invest.analyst.utils.InvestmentType;
 
 import javax.persistence.Entity;
 
 @Entity
-public class Intraday extends Investment {
+public class ShortTermInvestment extends Investment {
 
-    public Intraday getInvestmentObjectFromValue(Investment investment){
+    public ShortTermInvestment getInvestmentObjectFromValue(Investment investment){
         this.buyPrice = investment.getBuyPrice();
         this.sellPrice = investment.getSellPrice();
         this.setDateOfIssue();
         this.analyst = investment.getAnalyst();
-        this.investmentType = InvestmentType.INTRADAY;
+        this.investmentType = InvestmentType.SHORT_TERM_INVESTMENT;
         this.stock = investment.getStock();
         this.stockReferenceId = investment.getStockReferenceId();
         return this;
