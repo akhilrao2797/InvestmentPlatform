@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  jpa:
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: 'create'
+  datasource:
+    url: jdbc:mysql://localhost:3306/invest
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: akhil
+    password: akhil
+
+com:
+  invest:
+    secret: invest-platform-akhil
+
+logging:
+  level:
+    root: INFO
+    com:
+      akhilrao2797:
+        invest: DEBUG
