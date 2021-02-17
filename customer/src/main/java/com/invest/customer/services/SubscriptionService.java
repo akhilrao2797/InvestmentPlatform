@@ -4,12 +4,12 @@ import com.invest.customer.models.Payment;
 import com.invest.customer.models.Subscription;
 import com.invest.customer.models.User;
 import com.invest.customer.respository.SubscriptionRepository;
-import org.assertj.core.util.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Optional;
 
 @Service
@@ -25,7 +25,7 @@ public class SubscriptionService {
         if(subscription == null) {
             subscription = new Subscription();
             subscription.setUser(payment.getUser());
-            subscription.setAnalystList(Lists.newArrayList(payment.getAnalyst()));
+            subscription.setAnalystList(Collections.singletonList(payment.getAnalyst()));
 
         }
         else {

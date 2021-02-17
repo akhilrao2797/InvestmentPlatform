@@ -2,7 +2,7 @@ package com.invest.customer.services;
 
 import com.invest.customer.models.User;
 import com.invest.customer.respository.UserRepository;
-import com.invest.customer.utils.Roles;
+import com.invest.utils.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

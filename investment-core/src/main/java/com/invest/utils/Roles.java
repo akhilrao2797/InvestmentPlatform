@@ -1,4 +1,4 @@
-package com.invest.customer.utils;
+package com.invest.utils;
 
 public enum Roles {
     USER,

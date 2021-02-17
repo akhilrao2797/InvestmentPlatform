@@ -1,6 +1,7 @@
 package com.invest.customer.models;
 
-import com.invest.customer.utils.NotNullAndNotEmpty;
+
+import com.invest.utils.NotNullAndNotEmpty;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;

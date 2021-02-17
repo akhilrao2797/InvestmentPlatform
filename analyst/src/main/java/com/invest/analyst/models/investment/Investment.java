@@ -2,7 +2,6 @@ package com.invest.analyst.models.investment;
 
 import com.invest.analyst.models.Analyst;
 import com.invest.analyst.utils.InvestmentType;
-import com.invest.analyst.utils.NotNullAndNotEmpty;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,9 +14,7 @@ public class Investment {
     long investmentId;
     @OneToOne
     Analyst analyst;
-    @NotNullAndNotEmpty
     String stock;
-    @NotNullAndNotEmpty
     String stockReferenceId;
     float buyPrice;
     float sellPrice;
