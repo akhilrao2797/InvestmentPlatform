@@ -12,8 +12,8 @@ public class Subscription {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     User user;
     
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    List<Analyst> analystList;
+    @ElementCollection
+    List<String> analystList;
 
     public long getSubscriptionId() {
         return subscriptionId;
@@ -31,11 +31,11 @@ public class Subscription {
         this.user = user;
     }
 
-    public List<Analyst> getAnalystList() {
+    public List<String> getAnalystList() {
         return analystList;
     }
 
-    public void setAnalystList(List<Analyst> analystList) {
+    public void setAnalystList(List<String> analystList) {
         this.analystList = analystList;
     }
 }

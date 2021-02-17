@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InvestmentPlatformApplication {
+public class CustomerInvestmentApplication {
     public static void main(String[] args){
-        SpringApplication.run(InvestmentPlatformApplication.class, args);
+        SpringApplication.run(CustomerInvestmentApplication.class, args);
     }
 }

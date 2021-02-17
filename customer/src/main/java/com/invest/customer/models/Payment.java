@@ -1,5 +1,6 @@
 package com.invest.customer.models;
 
+import com.invest.customer.utils.NotNullAndNotEmpty;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
@@ -16,8 +17,8 @@ public class Payment {
     UUID paymentId;
     @OneToOne
     User user;
-//    @OneToOne
-    Analyst analyst;
+    @NotNullAndNotEmpty
+    String analyst;
     @PastOrPresent
     LocalDateTime localDateTime;
 
@@ -37,11 +38,11 @@ public class Payment {
         this.user = user;
     }
 
-    public Analyst getAnalyst() {
+    public String getAnalyst() {
         return analyst;
     }
 
-    public void setAnalyst(Analyst analyst) {
+    public void setAnalyst(String analyst) {
         this.analyst = analyst;
     }
 
