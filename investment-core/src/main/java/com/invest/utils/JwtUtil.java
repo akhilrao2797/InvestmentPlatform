@@ -1,4 +1,4 @@
-package com.invest.customer.utils;
+package com.invest.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

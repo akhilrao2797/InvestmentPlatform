@@ -1,7 +1,5 @@
 package com.invest.analyst.models;
 
-import com.invest.analyst.utils.NotNullAndNotEmpty;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.UUID;
@@ -10,12 +8,9 @@ import java.util.UUID;
 public class Analyst {
     @Id
     String analystId;
-    @NotNullAndNotEmpty
     String name;
-    @NotNullAndNotEmpty
     String company;
     boolean statusActive;
-    @NotNullAndNotEmpty
     String sebiRegisteredId;
 
     public String getAnalystId() {

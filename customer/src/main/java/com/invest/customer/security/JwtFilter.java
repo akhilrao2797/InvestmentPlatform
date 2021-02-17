@@ -1,7 +1,7 @@
 package com.invest.customer.security;
 
 import com.invest.customer.services.CustomUserDetailService;
-import com.invest.customer.utils.JwtUtil;
+import com.invest.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

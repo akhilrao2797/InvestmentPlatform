@@ -1,9 +1,9 @@
 package com.invest.customer.models;
 
-import com.invest.customer.utils.NotNullAndNotEmpty;
-import com.invest.customer.utils.Roles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.invest.utils.Roles;
+import com.invest.utils.NotNullAndNotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

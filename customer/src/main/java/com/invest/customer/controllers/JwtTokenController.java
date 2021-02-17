@@ -1,7 +1,6 @@
 package com.invest.customer.controllers;
 
-import com.invest.customer.utils.JwtUtil;
-import org.assertj.core.util.Maps;
+import com.invest.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
@@ -35,7 +35,7 @@ public class JwtTokenController {
             throw new NoSuchElementException("Invalid User or Invalid credentials");
         }
         return ResponseEntity
-                .ok(Maps.newHashMap("jwt", jwtUtil.generateToken(user)));
+                .ok(Collections.singletonMap("jwt", jwtUtil.generateToken(user)));
     }
 }
 

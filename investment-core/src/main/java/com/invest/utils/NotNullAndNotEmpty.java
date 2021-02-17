@@ -1,4 +1,4 @@
-package com.invest.analyst.utils;
+package com.invest.utils;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -13,4 +13,3 @@ public @interface NotNullAndNotEmpty {
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }
-
