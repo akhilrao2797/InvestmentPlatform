@@ -1,6 +1,6 @@
 package com.akhilrao2797.invest.services;
 
-import com.akhilrao2797.invest.models.User;
+import com.akhilrao2797.invest.models.user.Customer;
 import com.akhilrao2797.invest.respository.UserRepository;
 import com.akhilrao2797.invest.utils.Roles;
 import org.slf4j.Logger;
@@ -25,16 +25,16 @@ public class UserService {
         LOG = LoggerFactory.getLogger(UserService.class);
     }
 
-    public User postUser(User user){
+    public Customer postUser(Customer customer){
         LOG.debug("Entered UserService.postUser");
-        user.setUserId();
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(Roles.USER);
+        customer.setUserId();
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        customer.setRole(Roles.USER);
         LOG.debug("Exited UserService.postUser");
-        return userRepository.save(user);
+        return userRepository.save(customer);
     }
 
-    public User getUserById(String id){
+    public Customer getUserById(String id){
         LOG.debug("Entered UserService.getUserById");
         return userRepository
                 .findById(id)

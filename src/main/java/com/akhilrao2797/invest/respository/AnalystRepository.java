@@ -1,6 +1,6 @@
 package com.akhilrao2797.invest.respository;
 
-import com.akhilrao2797.invest.models.Analyst;
+import com.akhilrao2797.invest.models.user.Analyst;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

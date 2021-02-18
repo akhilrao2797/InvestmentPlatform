@@ -2,7 +2,7 @@ package com.akhilrao2797.invest.services;
 
 import com.akhilrao2797.invest.models.Payment;
 import com.akhilrao2797.invest.models.Subscription;
-import com.akhilrao2797.invest.models.User;
+import com.akhilrao2797.invest.models.user.Customer;
 import com.akhilrao2797.invest.respository.SubscriptionRepository;
 import org.assertj.core.util.Lists;
 import org.slf4j.Logger;
@@ -21,10 +21,10 @@ public class SubscriptionService {
 
     public Subscription createSubscription(Payment payment){
         LOG.debug("Entered SubscriptionService.createSubscription");
-        Subscription subscription = getSubscriptionByUser(payment.getUser());
+        Subscription subscription = getSubscriptionByUser(payment.getCustomer());
         if(subscription == null) {
             subscription = new Subscription();
-            subscription.setUser(payment.getUser());
+            subscription.setCustomer(payment.getCustomer());
             subscription.setAnalystList(Lists.newArrayList(payment.getAnalyst()));
 
         }
@@ -46,9 +46,9 @@ public class SubscriptionService {
         return subscription.get();
     }
 
-    public Subscription getSubscriptionByUser(User user){
+    public Subscription getSubscriptionByUser(Customer customer){
         LOG.debug("Entered SubscriptionService.getSubscriptionByUser");
-        Optional<Subscription> subscription = subscriptionRepository.findByUser(user);
+        Optional<Subscription> subscription = subscriptionRepository.findByUser(customer);
         if(!subscription.isPresent()){
             return null;
         }

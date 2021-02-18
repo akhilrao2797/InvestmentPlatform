@@ -1,6 +1,6 @@
 package com.akhilrao2797.invest.services;
 
-import com.akhilrao2797.invest.models.Analyst;
+import com.akhilrao2797.invest.models.user.Analyst;
 import com.akhilrao2797.invest.models.investment.Investment;
 import com.akhilrao2797.invest.utils.InvestmentType;
 import com.akhilrao2797.invest.utils.InvestmentFactory;

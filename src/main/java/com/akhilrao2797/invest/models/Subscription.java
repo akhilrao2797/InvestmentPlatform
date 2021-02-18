@@ -1,5 +1,8 @@
 package com.akhilrao2797.invest.models;
 
+import com.akhilrao2797.invest.models.user.Analyst;
+import com.akhilrao2797.invest.models.user.Customer;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,7 +13,7 @@ public class Subscription {
     long subscriptionId;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    User user;
+    Customer customer;
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Analyst> analystList;
@@ -23,12 +26,12 @@ public class Subscription {
         this.subscriptionId = subscriptionId;
     }
 
-    public User getUser() {
-        return user;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public List<Analyst> getAnalystList() {

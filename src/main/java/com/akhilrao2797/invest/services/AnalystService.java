@@ -1,6 +1,6 @@
 package com.akhilrao2797.invest.services;
 
-import com.akhilrao2797.invest.models.Analyst;
+import com.akhilrao2797.invest.models.user.Analyst;
 import com.akhilrao2797.invest.respository.AnalystRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
