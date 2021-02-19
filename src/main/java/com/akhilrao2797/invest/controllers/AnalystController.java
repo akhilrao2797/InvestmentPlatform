@@ -1,6 +1,6 @@
 package com.akhilrao2797.invest.controllers;
 
-import com.akhilrao2797.invest.models.Analyst;
+import com.akhilrao2797.invest.models.user.Analyst;
 import com.akhilrao2797.invest.services.AnalystService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,17 +1,17 @@
-package com.akhilrao2797.invest.models;
+package com.akhilrao2797.invest.models.user;
 
 import com.akhilrao2797.invest.utils.NotNullAndNotEmpty;
 import com.akhilrao2797.invest.utils.Roles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Entity
+@MappedSuperclass
 public class User {
     @Id
     String userId;
@@ -23,8 +23,6 @@ public class User {
     @Past
     LocalDate dateOfBirth;
     @JsonIgnore
-    boolean paidUser;
-    @JsonIgnore
     Roles role;
 
     public String getUserId() {
@@ -32,11 +30,7 @@ public class User {
     }
 
     public void setUserId() {
-        this.userId = UUID
-                .randomUUID()
-                .toString()
-                .replace("-", "")
-                .toUpperCase();
+        this.userId = UUID.randomUUID().toString().toUpperCase().replace("-", "");
     }
 
     public String getName() {
@@ -47,28 +41,20 @@ public class User {
         this.name = name;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public boolean isPaidUser() {
-        return paidUser;
-    }
-
-    public void setPaidUser(boolean paidUser) {
-        this.paidUser = paidUser;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Roles getRole() {

@@ -1,7 +1,7 @@
 package com.akhilrao2797.invest.services;
 
-import com.akhilrao2797.invest.models.User;
-import com.akhilrao2797.invest.respository.UserRepository;
+import com.akhilrao2797.invest.models.user.Customer;
+import com.akhilrao2797.invest.respository.CustomerRepository;
 import com.akhilrao2797.invest.utils.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,37 +14,37 @@ import java.util.NoSuchElementException;
 @Service
 public class UserService {
 
-    private UserRepository userRepository;
+    private CustomerRepository customerRepository;
     private PasswordEncoder passwordEncoder;
     private Logger LOG;
 
     @Autowired
-    UserService(UserRepository userRepository, PasswordEncoder passwordEncoder){
-        this.userRepository = userRepository;
+    UserService(CustomerRepository customerRepository, PasswordEncoder passwordEncoder){
+        this.customerRepository = customerRepository;
         this.passwordEncoder = passwordEncoder;
         LOG = LoggerFactory.getLogger(UserService.class);
     }
 
-    public User postUser(User user){
+    public Customer postUser(Customer customer){
         LOG.debug("Entered UserService.postUser");
-        user.setUserId();
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(Roles.USER);
+        customer.setUserId();
+        customer.setPassword(passwordEncoder.encode(customer.getPassword()));
+        customer.setRole(Roles.USER);
         LOG.debug("Exited UserService.postUser");
-        return userRepository.save(user);
+        return customerRepository.save(customer);
     }
 
-    public User getUserById(String id){
+    public Customer getUserById(String id){
         LOG.debug("Entered UserService.getUserById");
-        return userRepository
+        return customerRepository
                 .findById(id)
                 .orElseThrow(NoSuchElementException::new);
     }
 
     public void deleteUserById(String id){
         LOG.debug("Entered UserService.deleteUserById");
-        if(userRepository.existsById(id)){
-            userRepository.deleteById(id);
+        if(customerRepository.existsById(id)){
+            customerRepository.deleteById(id);
         }
         else{
             throw new NoSuchElementException();

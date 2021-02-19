@@ -1,5 +1,7 @@
 package com.akhilrao2797.invest.models;
 
+import com.akhilrao2797.invest.models.user.Analyst;
+import com.akhilrao2797.invest.models.user.Customer;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
@@ -15,7 +17,7 @@ public class Payment {
     @Type(type = "org.hibernate.type.UUIDCharType")
     UUID paymentId;
     @OneToOne
-    User user;
+    Customer customer;
     @OneToOne
     Analyst analyst;
     @PastOrPresent
@@ -29,12 +31,12 @@ public class Payment {
         this.paymentId = UUID.randomUUID();
     }
 
-    public User getUser() {
-        return user;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Analyst getAnalyst() {

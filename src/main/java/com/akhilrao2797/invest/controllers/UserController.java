@@ -1,6 +1,6 @@
 package com.akhilrao2797.invest.controllers;
 
-import com.akhilrao2797.invest.models.User;
+import com.akhilrao2797.invest.models.user.Customer;
 import com.akhilrao2797.invest.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +17,13 @@ public class UserController {
 
     @GetMapping("/user('{userId}')")
     @RolesAllowed("USER")
-    public ResponseEntity<User> getUserInfo(@PathVariable String userId){
+    public ResponseEntity<Customer> getUserInfo(@PathVariable String userId){
         return ResponseEntity.ok(userService.getUserById(userId));
     }
 
     @PostMapping("/user")
-    public ResponseEntity<User> addUser(@RequestBody User user){
-        return ResponseEntity.ok(userService.postUser(user));
+    public ResponseEntity<Customer> addUser(@RequestBody Customer customer){
+        return ResponseEntity.ok(userService.postUser(customer));
     }
 
     @DeleteMapping("/user('{userId}')")
@@ -35,7 +35,7 @@ public class UserController {
 
     @PutMapping("/user")
     @RolesAllowed("USER")
-    public ResponseEntity<User> updateUserInfo(@RequestBody User user){
+    public ResponseEntity<Customer> updateUserInfo(@RequestBody Customer customer){
         return ResponseEntity.ok().build();
     }
 }

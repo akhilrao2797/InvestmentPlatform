@@ -1,4 +1,4 @@
-package com.akhilrao2797.invest.models;
+package com.akhilrao2797.invest.models.user;
 
 import com.akhilrao2797.invest.utils.NotNullAndNotEmpty;
 
@@ -7,36 +7,12 @@ import javax.persistence.Id;
 import java.util.UUID;
 
 @Entity
-public class Analyst {
-    @Id
-    String analystId;
-    @NotNullAndNotEmpty
-    String name;
+public class Analyst extends User{
     @NotNullAndNotEmpty
     String company;
     boolean statusActive;
     @NotNullAndNotEmpty
     String sebiRegisteredId;
-
-    public String getAnalystId() {
-        return analystId;
-    }
-
-    public void setAnalystId() {
-        this.analystId = UUID
-                .randomUUID()
-                .toString()
-                .replace("-", "")
-                .toUpperCase();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getCompany() {
         return company;
