@@ -1,6 +1,5 @@
 package com.akhilrao2797.invest.services;
 
-import com.akhilrao2797.invest.models.user.Customer;
 import com.akhilrao2797.invest.models.user.User;
 import com.akhilrao2797.invest.respository.AnalystRepository;
 import com.akhilrao2797.invest.respository.CustomerRepository;
