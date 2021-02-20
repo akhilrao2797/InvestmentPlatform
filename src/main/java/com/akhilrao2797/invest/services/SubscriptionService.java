@@ -48,7 +48,7 @@ public class SubscriptionService {
 
     public Subscription getSubscriptionByUser(Customer customer){
         LOG.debug("Entered SubscriptionService.getSubscriptionByUser");
-        Optional<Subscription> subscription = subscriptionRepository.findByUser(customer);
+        Optional<Subscription> subscription = subscriptionRepository.findByCustomer(customer);
         if(!subscription.isPresent()){
             return null;
         }

@@ -18,7 +18,7 @@ public class AnalystService {
 
     public Analyst postAnalyst(Analyst analyst){
         LOG.debug("Entered Analyst.postAnalyst");
-        analyst.setAnalystId();
+        analyst.setUserId();
         LOG.debug("Exiting Analyst.postAnalyst");
         return analystRepository.save(analyst);
     }

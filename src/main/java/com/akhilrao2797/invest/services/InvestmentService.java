@@ -1,9 +1,9 @@
 package com.akhilrao2797.invest.services;
 
-import com.akhilrao2797.invest.models.user.Analyst;
 import com.akhilrao2797.invest.models.investment.Investment;
-import com.akhilrao2797.invest.utils.InvestmentType;
+import com.akhilrao2797.invest.models.user.Analyst;
 import com.akhilrao2797.invest.utils.InvestmentFactory;
+import com.akhilrao2797.invest.utils.InvestmentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +41,7 @@ public class InvestmentService {
     public Investment addInvestmentInfo(Investment investment) {
         LOG.debug("Entered InvestmentService.addInvestmentInfo");
         Analyst analyst = analystService
-                .getAnalystById(investment.getAnalyst().getAnalystId());
+                .getAnalystById(investment.getAnalyst().getUserId());
         investment.setAnalyst(analyst);
         investment = investmentFactory.insertData(investment);
         if(Long.valueOf(investment.getInvestmentId()) == null){
