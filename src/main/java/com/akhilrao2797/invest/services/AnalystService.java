@@ -1,5 +1,6 @@
 package com.akhilrao2797.invest.services;
 
+import com.akhilrao2797.invest.models.exception.UserNotFoundException;
 import com.akhilrao2797.invest.models.user.Analyst;
 import com.akhilrao2797.invest.respository.AnalystRepository;
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class AnalystService {
@@ -24,9 +26,11 @@ public class AnalystService {
     }
 
     public Analyst getAnalystById(String id) {
-        return analystRepository
-                .findById(id)
-                .orElseThrow(NoSuchElementException::new);
+        Optional<Analyst> analyst = analystRepository
+                .findById(id);
+        if(!analyst.isPresent())
+            throw new UserNotFoundException("invest.InvalidUser");
+        return analyst.get();
     }
 
     public void deleteAnalystById(String id){

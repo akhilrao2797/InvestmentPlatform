@@ -1,5 +1,6 @@
 package com.akhilrao2797.invest.controllers;
 
+import com.akhilrao2797.invest.models.exception.UserNotFoundException;
 import com.akhilrao2797.invest.utils.JwtUtil;
 import org.assertj.core.util.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class JwtTokenController {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user, password));
         } catch(Exception ex){
-            throw new NoSuchElementException("Invalid User or Invalid credentials");
+            throw new UserNotFoundException("invest.InvalidCredentials");
         }
         return ResponseEntity
                 .ok(Maps.newHashMap("jwt", jwtUtil.generateToken(user)));

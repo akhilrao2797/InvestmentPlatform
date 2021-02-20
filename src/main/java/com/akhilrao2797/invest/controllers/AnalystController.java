@@ -15,14 +15,10 @@ public class AnalystController {
 
     @GetMapping("analyst('{analystId}')")
     public ResponseEntity<Analyst> getAnalyst(@PathVariable String analystId){
-        try {
-            if (analystId.length() == 32)
-                return ResponseEntity.ok(analystService.getAnalystById(analystId));
-            else
-                return ResponseEntity.notFound().build();
-        }catch (Exception e){
+        if (analystId.length() == 32)
+            return ResponseEntity.ok(analystService.getAnalystById(analystId));
+        else
             return ResponseEntity.notFound().build();
-        }
     }
 
     @PostMapping("/analyst")
@@ -34,11 +30,7 @@ public class AnalystController {
     @PutMapping("/analyst('{analystId}')")
     public ResponseEntity<Analyst> putAnalyst(@PathVariable String analystId,
                                      @RequestParam final boolean status){
-        try {
-            analystService.updateAnalystStatus(analystId, status);
-        }catch (Exception e){
-            return ResponseEntity.notFound().build();
-        }
+        analystService.updateAnalystStatus(analystId, status);
         return ResponseEntity.accepted().build();
     }
 

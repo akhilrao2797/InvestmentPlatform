@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  messages:
+    basename: i18n/MessageBundle
   jpa:
     show-sql: false
     generate-ddl: true

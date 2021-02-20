@@ -1,5 +1,6 @@
 package com.akhilrao2797.invest.services;
 
+import com.akhilrao2797.invest.models.exception.UserNotFoundException;
 import com.akhilrao2797.invest.models.user.Customer;
 import com.akhilrao2797.invest.respository.CustomerRepository;
 import com.akhilrao2797.invest.utils.Roles;
@@ -10,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -36,9 +38,11 @@ public class UserService {
 
     public Customer getUserById(String id){
         LOG.debug("Entered UserService.getUserById");
-        return customerRepository
-                .findById(id)
-                .orElseThrow(NoSuchElementException::new);
+        Optional<Customer> customer = customerRepository
+                .findById(id);
+        if(!customer.isPresent())
+            throw new UserNotFoundException("invest.InvalidUser");
+        return customer.get();
     }
 
     public void deleteUserById(String id){
