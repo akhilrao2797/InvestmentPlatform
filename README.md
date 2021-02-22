@@ -15,7 +15,7 @@ A web based app that provides a single platform where an investor gets to know t
 #### TODOs
   1. Custom Exception Handling
   2. Investigate Analyst and Customer compatabilities and other features
-  3. Use third party payment service API
+  3. Use third party payment service API (tentative)
   4. Kafka or other message broker to intimate customer on their analyst post.
   5. Postman collection for these APIs.
   6. Redis caching of analyst posts.
